@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flip A Flippin Coin</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        sup {
+            font-size: 1rem;
+        }
+
+        img {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .insta-chart {
+            line-height: 0.5rem;
+            margin-left: 15rem;
+            margin-right: 15rem;
+            border-style: solid;
+            border-width: 0.2rem;
+            border-radius: 25px;
+        }
+
+        .love {
+            text-decoration-line: line-through;
+            text-decoration-thickness: 0.2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Flip A Flippin<sup>(Fricking)</sup> Coin</h1>
+
+    <h2>No You Can't Keep It</h2>
+
+    <img class="" src="coin.svg" alt="">
+
+    <br>
+
+    <button>Press Me</button>
+
+    <details>
+
+        <summary>Insta-Chart</summary>
+
+        <div class="insta-chart">
+
+            <p class="heads-and-tails">The insta-chart lets you be lazy, free of charge*!</p>
+
+            <p class="num">Start by pressing the button.</p>
+
+            <p class="percentage">(Grace Is A Female Dog (I Needed A 3rd Line So Why Not Add This
+                <strong>¯\_(ツ)_/¯</strong>))</p>
+
+        </div>
+
+    </details>
+
+    <footer>
+
+        <p>Made out of <span class="love">❤️</span> boredom by Eagan.</p>
+
+        <p>(This page is not responsive for mobile yet.)</p>
+
+    </footer>
+
+</body>
+
+<script src="jquery.min.js"></script>
+
+<script>
+    let randomNumber;
+
+    let headsOrTails;
+
+    let heads = 0;
+
+    let tails = 0;
+
+    let headsAndTails;
+
+    document.querySelector("button").addEventListener("click", function () {
+
+        randomNumber = Math.random() * 2;
+
+        headsOrTails = "";
+
+        if (randomNumber < 1) {
+
+            headsOrTails = "heads";
+
+            heads++;
+
+        } else {
+
+            headsOrTails = "tails";
+
+            tails++;
+
+        }
+
+        headsAndTails = heads + tails;
+
+        headsPercentage = heads / headsAndTails;
+
+        tailsPercentage = tails / headsAndTails;
+
+        document.querySelector("img").src = headsOrTails + ".svg";
+
+        $(".heads-and-tails").text("Monkeys : Bananas");
+
+        $(".num").text(heads + " : " + tails);
+
+        $(".percentage").text(Math.floor(headsPercentage * 101) + "% : " + Math.floor(
+                tailsPercentage * 101) +
+            "%");
+
+        if (headsPercentage === 1) {
+
+            $(".percentage").text("100% : 0%");
+
+        } else if (tailsPercentage === 1) {
+
+            $(".percentage").text("0% : 100%");
+
+        }
+
+        $(".insta-chart").css("margin-left", "30rem");
+        $(".insta-chart").css("margin-right", "30rem");
+
+        $("button").text("Press Me");
+
+    });
+</script>
+
+</html>
